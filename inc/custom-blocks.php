@@ -39,10 +39,21 @@ add_filter( 'block_categories_all', 'blue_sage_block_category', 10, 1 );
 /**
  * Register all custom blocks.
  *
- * Each entry maps to a directory under /blocks/ containing block.json.
- * WordPress reads block.json to discover style, viewScript, and render.php.
+ * Registers a shared editor script first (for Site Editor / Gutenberg support),
+ * then registers each block from its directory containing block.json.
+ * WordPress reads block.json to discover style, editorScript, and render.php.
  */
 function blue_sage_register_blocks(): void {
+	// Shared editor script: registers all custom blocks for Gutenberg / Site Editor.
+	// Each block uses ServerSideRender so the editor shows a live PHP-rendered preview.
+	wp_register_script(
+		'blue-sage-blocks-editor',
+		BLUE_SAGE_URI . '/assets/js/blocks-editor.js',
+		[ 'wp-blocks', 'wp-element', 'wp-server-side-render', 'wp-block-editor' ],
+		BLUE_SAGE_VERSION,
+		false
+	);
+
 	$blocks = [
 		// Phase 2
 		'metrics-bar',

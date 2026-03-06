@@ -42,6 +42,7 @@
 		},
 		"color": false
 	},
+	"editorScript": "blue-sage-blocks-editor",
 	"style":      "file:./style.css",
 	"viewScript": "file:./index.js",
 	"render":     "file:./render.php"
