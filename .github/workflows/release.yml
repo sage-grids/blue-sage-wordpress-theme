@@ -1,0 +1,111 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: write   # needed to create GitHub Releases and upload assets
+
+jobs:
+  release:
+    name: Build & Publish Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so we can diff changelog links
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF_NAME}"          # e.g. v1.2.3
+          VERSION="${TAG#v}"                # e.g. 1.2.3
+          echo "tag=${TAG}"       >> "$GITHUB_OUTPUT"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Verify theme version matches tag
+        run: |
+          THEME_VERSION=$(grep -oE "Version:[[:space:]]*[0-9]+\.[0-9]+\.[0-9]+" \
+            style.css | grep -oE "[0-9]+\.[0-9]+\.[0-9]+")
+          TAG_VERSION="${{ steps.version.outputs.version }}"
+          if [[ "$THEME_VERSION" != "$TAG_VERSION" ]]; then
+            echo "ERROR: Theme header version (${THEME_VERSION}) does not match tag (${TAG_VERSION})."
+            exit 1
+          fi
+
+      - name: Build release ZIP
+        id: zip
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          ZIP_NAME="blue-sage-${VERSION}.zip"
+          BUILD_DIR="$(mktemp -d)/blue-sage"
+
+          # Copy theme files, excluding dev-only paths
+          rsync -a \
+            --exclude='node_modules/' \
+            --exclude='vendor/' \
+            --exclude='tests/' \
+            --exclude='.git*' \
+            --exclude='.DS_Store' \
+            --exclude='*.zip' \
+            --exclude='composer.json' \
+            --exclude='composer.lock' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
+            --exclude='phpcs.xml.dist' \
+            --exclude='playwright.config.js' \
+            --exclude='.eslintrc.json' \
+            --exclude='.github/' \
+            ./ "$BUILD_DIR/"
+
+          # Create the zip with the theme folder as root entry
+          (cd "$(dirname "$BUILD_DIR")" && zip -r9 "$GITHUB_WORKSPACE/${ZIP_NAME}" blue-sage)
+
+          echo "zip_name=${ZIP_NAME}" >> "$GITHUB_OUTPUT"
+          echo "zip_path=${GITHUB_WORKSPACE}/${ZIP_NAME}" >> "$GITHUB_OUTPUT"
+
+          # Report size
+          du -sh "$GITHUB_WORKSPACE/${ZIP_NAME}"
+
+      - name: Extract changelog for this release
+        id: changelog
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+
+          # Pull everything between this version's heading and the next one
+          NOTES=$(python3 - "$VERSION" CHANGELOG.md <<'PYEOF'
+          import sys, re, pathlib
+
+          version = sys.argv[1]
+          text    = pathlib.Path(sys.argv[2]).read_text()
+
+          # Match the section for this version up to the next ## heading or EOF
+          pattern = rf'## \[{re.escape(version)}\].*?\n(.*?)(?=\n## \[|\Z)'
+          m = re.search(pattern, text, re.DOTALL)
+          if m:
+              print(m.group(1).strip())
+          else:
+              print(f"No changelog entry found for {version}.")
+          PYEOF
+          )
+
+          # Write to file to preserve newlines through GITHUB_OUTPUT
+          {
+            echo "notes<<CHANGELOG_EOF"
+            echo "$NOTES"
+            echo "CHANGELOG_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          body: ${{ steps.changelog.outputs.notes }}
+          files: ${{ steps.zip.outputs.zip_path }}
+          draft: false
+          prerelease: false

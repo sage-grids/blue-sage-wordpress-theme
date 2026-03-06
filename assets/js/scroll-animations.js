@@ -38,6 +38,10 @@
 		var observer = new IntersectionObserver( function ( entries ) {
 			entries.forEach( function ( entry ) {
 				if ( entry.isIntersecting ) {
+					entry.target.addEventListener( 'transitionend', function cleanup() {
+						entry.target.style.willChange = 'auto';
+						entry.target.removeEventListener( 'transitionend', cleanup );
+					}, { once: true } );
 					entry.target.classList.add( 'is-visible' );
 					observer.unobserve( entry.target );
 				}
@@ -45,6 +49,7 @@
 		}, BASE_OPTIONS );
 
 		elements.forEach( function ( el ) {
+			el.style.willChange = 'opacity, transform';
 			observer.observe( el );
 		} );
 	}
@@ -65,6 +70,11 @@
 
 					children.forEach( function ( child, index ) {
 						child.style.transitionDelay = ( index * 80 ) + 'ms';
+						child.style.willChange = 'opacity, transform';
+						child.addEventListener( 'transitionend', function cleanup() {
+							child.style.willChange = 'auto';
+							child.removeEventListener( 'transitionend', cleanup );
+						}, { once: true } );
 						child.classList.add( 'is-visible' );
 					} );
 
@@ -81,6 +91,7 @@
 	// ----------------------------------------------------------------
 	// Counter animations (.js-counter)
 	// Counts from 0 to data-target with an ease-out cubic curve.
+	// Supports decimal values: data-target="4.9" renders "4.9".
 	// ----------------------------------------------------------------
 
 	function initCounterAnimations() {
@@ -106,7 +117,9 @@
 	}
 
 	function animateCounter( el ) {
-		var target    = parseFloat( el.dataset.target );
+		var targetStr = el.dataset.target;
+		var target    = parseFloat( targetStr );
+		var isDecimal = targetStr.indexOf( '.' ) !== -1;
 		var prefix    = el.dataset.prefix || '';
 		var suffix    = el.dataset.suffix || '';
 		var duration  = 1500;
@@ -122,9 +135,13 @@
 
 			// Ease-out cubic: decelerates toward the target.
 			var eased   = 1 - Math.pow( 1 - progress, 3 );
-			var current = Math.round( eased * target );
+			var current = eased * target;
 
-			el.textContent = prefix + current.toLocaleString() + suffix;
+			el.textContent = prefix
+				+ ( isDecimal
+					? current.toFixed( 1 )
+					: Math.round( current ).toLocaleString() )
+				+ suffix;
 
 			if ( progress < 1 ) {
 				window.requestAnimationFrame( step );

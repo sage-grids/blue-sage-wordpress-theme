@@ -19,3 +19,5 @@ require_once BLUE_SAGE_DIR . '/inc/enqueue.php';
 require_once BLUE_SAGE_DIR . '/inc/helpers.php';
 require_once BLUE_SAGE_DIR . '/inc/custom-blocks.php';
 require_once BLUE_SAGE_DIR . '/inc/block-patterns.php';
+require_once BLUE_SAGE_DIR . '/inc/performance.php';
+require_once BLUE_SAGE_DIR . '/inc/seo.php';

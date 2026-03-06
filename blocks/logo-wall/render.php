@@ -50,7 +50,7 @@ function blue_sage_render_logo_set( array $logos, bool $aria_hidden = false ): v
 		if ( $link_url ) {
 			echo '<a href="' . $link_url . '" class="bs-logos__link" target="_blank" rel="noopener noreferrer" aria-label="' . esc_attr( $media_alt ) . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
-		echo '<img class="bs-logos__img" src="' . $media_url . '" alt="' . esc_attr( $media_alt ) . '" loading="lazy" height="40" width="auto">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<img class="bs-logos__img" src="' . $media_url . '" alt="' . esc_attr( $media_alt ) . '" loading="lazy" height="40" width="140">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		if ( $link_url ) {
 			echo '</a>';
 		}

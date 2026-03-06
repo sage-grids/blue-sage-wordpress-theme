@@ -1,10 +1,10 @@
-Let's make sure the plugin is branded. 
+Let's make sure the theme is branded. 
 
-We should show our company name, provide a link to our CRM for support: https://crm.sagegrids.com/
+- Each PHP file must include proper docblocks, crediting the author.
+- a gentle/subtle "Designed by SAGE GRIDS" copyright in the theme footer.
+- More info/links on the admin panel side (on theme config page).
 
-Also, there is a sample company info in the import/export feature. We should use my business/company names as an example.
-
-My business name: SAGE GRIDS
+My business name: SAGE GRIDS LTD
 Tagline: AI-Powered Systems. Built with Expertise.
 Business website: https://www.sagegrids.com
 Business e-mail: hello@sagegrids.com

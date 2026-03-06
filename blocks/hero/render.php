@@ -37,8 +37,17 @@ $s_target = ! empty( $secondary_cta['newTab'] ) ? ' target="_blank" rel="noopene
 // Heading class — optional gradient treatment.
 $heading_class = 'bs-hero__heading' . ( $gradient_heading ? ' bs-gradient-text' : '' );
 
-$section_class      = 'bs-hero bs-hero--' . sanitize_html_class( $layout );
-$wrapper_attributes = get_block_wrapper_attributes( [ 'class' => $section_class ] );
+$section_class = 'bs-hero bs-hero--' . sanitize_html_class( $layout );
+$extra         = ( 'split' !== $layout ) ? [ 'data-parallax' => 'true' ] : [];
+$wrapper_attributes = get_block_wrapper_attributes( array_merge(
+	[ 'class' => $section_class ],
+	$extra
+) );
+
+// LCP image priority for split layout on front page.
+$is_lcp   = ( 'split' === $layout ) && is_front_page();
+$img_load = $is_lcp ? 'eager' : 'lazy';
+$img_fp   = $is_lcp ? ' fetchpriority="high"' : '';
 
 // Helper: render CTA buttons.
 $render_ctas = function() use ( $p_label, $p_url, $p_target, $s_label, $s_url, $s_target ) {
@@ -65,6 +74,8 @@ $render_ctas = function() use ( $p_label, $p_url, $p_target, $s_label, $s_url, $
 	echo '</div>';
 };
 $GLOBALS['_bs_hero_layout'] = $layout;
+
+do_action( 'blue_sage_before_hero', $attributes );
 ?>
 <section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 
@@ -108,12 +119,14 @@ $GLOBALS['_bs_hero_layout'] = $layout;
 			<div class="bs-hero__media js-fade-up">
 				<?php if ( $media_url ) : ?>
 					<img
-						src="<?php echo $media_url; ?>"
+						class="bs-hero__img"
+						src="<?php echo esc_url( $media_url ); ?>"
 						alt="<?php echo esc_attr( $media_alt ); ?>"
-						loading="eager"
-						fetchpriority="high"
+						loading="<?php echo esc_attr( $img_load ); ?>"
+						width="800"
+						height="600"
 						decoding="async"
-						class="bs-hero__image"
+						<?php echo $img_fp; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					>
 				<?php else : ?>
 					<div class="bs-hero__media-placeholder" aria-hidden="true"></div>
@@ -156,4 +169,7 @@ $GLOBALS['_bs_hero_layout'] = $layout;
 	<?php endif; ?>
 
 </section>
-<?php unset( $GLOBALS['_bs_hero_layout'] ); ?>
+<?php
+do_action( 'blue_sage_after_hero', $attributes );
+unset( $GLOBALS['_bs_hero_layout'] );
+?>

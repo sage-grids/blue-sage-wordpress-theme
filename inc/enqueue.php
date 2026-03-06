@@ -2,8 +2,8 @@
 /**
  * Blue Sage — Scripts & Styles
  *
- * Enqueues Google Fonts, the main stylesheet, navigation JS,
- * and scroll animation JS. Adds preconnect hints for performance.
+ * Enqueues the main stylesheet, navigation JS, and scroll animation JS.
+ * Fonts are self-hosted via @font-face in style.css — no CDN requests.
  *
  * @package BlueSage
  */
@@ -13,24 +13,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Preload critical WOFF2 font files to reduce LCP.
+ * Only the two highest-impact weights are preloaded.
+ */
+function blue_sage_preload_fonts(): void {
+	$fonts = [
+		'plus-jakarta-sans-700.woff2',
+		'inter-400.woff2',
+	];
+
+	foreach ( $fonts as $font ) {
+		echo '<link rel="preload" href="'
+			. esc_url( BLUE_SAGE_URI . '/assets/fonts/' . $font )
+			. '" as="font" type="font/woff2" crossorigin="anonymous">' . "\n";
+	}
+}
+add_action( 'wp_head', 'blue_sage_preload_fonts', 1 );
+
+/**
  * Enqueue front-end assets.
  */
 function blue_sage_enqueue_assets(): void {
-	// Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono.
-	// Phase 5: replace with self-hosted WOFF2 files in assets/fonts/ for
-	// better LCP and privacy. See theme.json fontFace stubs.
-	wp_enqueue_style(
-		'blue-sage-fonts',
-		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap',
-		[],
-		null
-	);
-
-	// Main theme stylesheet.
+	// Main theme stylesheet (fonts are declared via @font-face inside style.css).
 	wp_enqueue_style(
 		'blue-sage-style',
 		get_stylesheet_uri(),
-		[ 'blue-sage-fonts' ],
+		[],
 		BLUE_SAGE_VERSION
 	);
 
@@ -52,6 +60,41 @@ function blue_sage_enqueue_assets(): void {
 		[ 'strategy' => 'defer', 'in_footer' => true ]
 	);
 
+	// Page entrance animation (in <head>, non-blocking).
+	wp_enqueue_script(
+		'blue-sage-page-entrance',
+		BLUE_SAGE_URI . '/assets/js/page-entrance.js',
+		[],
+		BLUE_SAGE_VERSION,
+		[ 'strategy' => 'defer', 'in_footer' => false ]
+	);
+
+	// Hero parallax.
+	wp_enqueue_script(
+		'blue-sage-parallax',
+		BLUE_SAGE_URI . '/assets/js/parallax.js',
+		[],
+		BLUE_SAGE_VERSION,
+		[ 'strategy' => 'defer', 'in_footer' => true ]
+	);
+
+	// Back to top.
+	wp_enqueue_script(
+		'blue-sage-back-to-top',
+		BLUE_SAGE_URI . '/assets/js/back-to-top.js',
+		[],
+		BLUE_SAGE_VERSION,
+		[ 'strategy' => 'defer', 'in_footer' => true ]
+	);
+
+	wp_localize_script(
+		'blue-sage-back-to-top',
+		'BlueSageL10n',
+		[
+			'backToTop' => __( 'Back to top', 'blue-sage' ),
+		]
+	);
+
 	// Comment reply threading script.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -59,19 +102,3 @@ function blue_sage_enqueue_assets(): void {
 }
 add_action( 'wp_enqueue_scripts', 'blue_sage_enqueue_assets' );
 
-/**
- * Preconnect to Google Fonts origins for faster DNS resolution.
- *
- * @param  array  $hints         Existing resource hints.
- * @param  string $relation_type The relation type (preconnect, dns-prefetch, etc.).
- * @return array
- */
-function blue_sage_resource_hints( array $hints, string $relation_type ): array {
-	if ( 'preconnect' === $relation_type ) {
-		$hints[] = [ 'href' => 'https://fonts.googleapis.com', 'crossorigin' => 'anonymous' ];
-		$hints[] = [ 'href' => 'https://fonts.gstatic.com',    'crossorigin' => 'anonymous' ];
-	}
-
-	return $hints;
-}
-add_filter( 'wp_resource_hints', 'blue_sage_resource_hints', 10, 2 );

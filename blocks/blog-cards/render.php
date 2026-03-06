@@ -64,10 +64,13 @@ $wrapper_attributes = get_block_wrapper_attributes( [ 'class' => 'bs-blog bs-blo
 
 			<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
 			<article class="bs-blog__featured js-fade-up">
-				<?php if ( has_post_thumbnail() ) : ?>
+				<?php
+				$thumb_id = get_post_thumbnail_id();
+				if ( $thumb_id ) :
+				?>
 				<div class="bs-blog__featured-media">
 					<a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
-						<?php the_post_thumbnail( 'large', [
+						<?php echo wp_get_attachment_image( $thumb_id, 'large', false, [
 							'class'   => 'bs-blog__featured-img',
 							'loading' => 'lazy',
 						] ); ?>
@@ -138,10 +141,13 @@ $wrapper_attributes = get_block_wrapper_attributes( [ 'class' => 'bs-blog bs-blo
 			<div class="bs-blog__grid js-stagger">
 				<?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
 				<article class="bs-blog__card js-fade-up">
-					<?php if ( has_post_thumbnail() ) : ?>
+					<?php
+					$thumb_id = get_post_thumbnail_id();
+					if ( $thumb_id ) :
+					?>
 					<div class="bs-blog__thumb">
 						<a href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
-							<?php the_post_thumbnail( 'medium_large', [
+							<?php echo wp_get_attachment_image( $thumb_id, 'medium_large', false, [
 								'class'   => 'bs-blog__thumb-img',
 								'loading' => 'lazy',
 							] ); ?>

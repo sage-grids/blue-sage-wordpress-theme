@@ -7,6 +7,12 @@
 	overflow: hidden;
 }
 
+/* Parallax hero: CSS background used for centered + editorial layouts */
+.bs-hero--centered[data-parallax],
+.bs-hero--editorial[data-parallax] {
+	will-change: background-position;
+}
+
 /* ============================================================
    Layout A — Centered (Dark)
    ============================================================ */
