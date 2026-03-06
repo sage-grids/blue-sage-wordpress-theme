@@ -2,8 +2,8 @@
 /**
  * Blue Sage — Block Pattern Registration
  *
- * Registers pattern categories and loads all pattern files from /patterns/.
- * Each pattern file calls register_block_pattern() independently.
+ * Registers pattern categories for theme patterns in /patterns/.
+ * Pattern files are auto-discovered by WordPress core.
  *
  * @package BlueSage
  * @author Ilyas Serter <hello@sagegrids.com>
@@ -34,19 +34,3 @@ function blue_sage_register_pattern_categories(): void {
 	}
 }
 add_action( 'init', 'blue_sage_register_pattern_categories' );
-
-/**
- * Load and register all pattern files.
- */
-function blue_sage_register_patterns(): void {
-	$pattern_files = glob( BLUE_SAGE_DIR . '/patterns/*.php' );
-
-	if ( ! $pattern_files ) {
-		return;
-	}
-
-	foreach ( $pattern_files as $file ) {
-		require_once $file;
-	}
-}
-add_action( 'init', 'blue_sage_register_patterns' );

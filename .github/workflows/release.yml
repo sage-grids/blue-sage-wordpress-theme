@@ -60,6 +60,9 @@ jobs:
             --exclude='playwright.config.js' \
             --exclude='.eslintrc.json' \
             --exclude='.github/' \
+            --exclude='docker-compose.yml' \
+            --exclude='Dockerfile' \
+            --exclude='.dockerignore' \
             ./ "$BUILD_DIR/"
 
           # Create the zip with the theme folder as root entry

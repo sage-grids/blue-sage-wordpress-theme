@@ -93,11 +93,14 @@ $quote_mark = '<svg class="bs-testimonial__mark" viewBox="0 0 48 36" fill="curre
 								loading="lazy"
 								decoding="async"
 							>
-						<?php else : ?>
-							<div class="bs-testimonial__avatar bs-testimonial__avatar--initials" aria-hidden="true">
-								<?php echo esc_html( mb_substr( $name, 0, 1 ) ); ?>
-							</div>
-						<?php endif; ?>
+							<?php else : ?>
+								<div class="bs-testimonial__avatar bs-testimonial__avatar--initials" aria-hidden="true">
+									<?php
+									$initial = function_exists( 'mb_substr' ) ? mb_substr( $name, 0, 1 ) : substr( $name, 0, 1 );
+									echo esc_html( $initial );
+									?>
+								</div>
+							<?php endif; ?>
 
 						<div class="bs-testimonial__info">
 							<?php if ( $name ) : ?>

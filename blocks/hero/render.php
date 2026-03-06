@@ -53,7 +53,7 @@ $img_load = $is_lcp ? 'eager' : 'lazy';
 $img_fp   = $is_lcp ? ' fetchpriority="high"' : '';
 
 // Helper: render CTA buttons.
-$render_ctas = function() use ( $p_label, $p_url, $p_target, $s_label, $s_url, $s_target ) {
+$render_ctas = static function () use ( $layout, $p_label, $p_url, $p_target, $s_label, $s_url, $s_target ) {
 	if ( ! $p_label && ! $s_label ) return;
 	echo '<div class="bs-hero__ctas">';
 	if ( $p_label ) {
@@ -65,7 +65,7 @@ $render_ctas = function() use ( $p_label, $p_url, $p_target, $s_label, $s_url, $
 		);
 	}
 	if ( $s_label ) {
-		$ghost_class = ( 'centered' === $GLOBALS['_bs_hero_layout'] ?? '' ) ? 'bs-btn--ghost-light' : 'bs-btn--ghost';
+		$ghost_class = ( 'centered' === $layout ) ? 'bs-btn--ghost-light' : 'bs-btn--ghost';
 		printf(
 			'<a href="%s" class="bs-btn %s"%s>%s</a>',
 			$s_url,
@@ -76,7 +76,6 @@ $render_ctas = function() use ( $p_label, $p_url, $p_target, $s_label, $s_url, $
 	}
 	echo '</div>';
 };
-$GLOBALS['_bs_hero_layout'] = $layout;
 
 do_action( 'blue_sage_before_hero', $attributes );
 ?>
@@ -174,5 +173,4 @@ do_action( 'blue_sage_before_hero', $attributes );
 </section>
 <?php
 do_action( 'blue_sage_after_hero', $attributes );
-unset( $GLOBALS['_bs_hero_layout'] );
 ?>

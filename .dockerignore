@@ -1,0 +1,12 @@
+.git
+.github
+node_modules
+*.zip
+CHANGELOG.md
+README.md
+docs
+blue-sage-child
+# Exclude the docker files from the build context if they're not needed
+docker-compose.yml
+Dockerfile
+.dockerignore

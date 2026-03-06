@@ -42,7 +42,7 @@ To create a new pattern, follow these steps:
 ```
 
 ## 4. Automatic Loading
-The loading logic is handled in `inc/block-patterns.php`. It uses `glob()` to find all PHP files in the `/patterns/` folder and requires them on the `init` hook. This means you do not need to manually register your new pattern in `functions.php`.
+WordPress automatically discovers and registers pattern files from the theme `/patterns/` directory. Blue Sage only registers custom pattern categories in `inc/block-patterns.php`, so you do not need to manually register your new pattern in `functions.php`.
 
 ## 5. Syncing with Site Editor
 If you modify a pattern in the WordPress Site Editor and want to save it back to the theme:

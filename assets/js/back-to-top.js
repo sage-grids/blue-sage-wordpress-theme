@@ -28,7 +28,7 @@
 			+ '</svg>';
 
 		btn.addEventListener( 'click', function () {
-			window.scrollTo( { top: 0, behavior: reduced ? 'instant' : 'smooth' } );
+			window.scrollTo( { top: 0, behavior: reduced ? 'auto' : 'smooth' } );
 		} );
 
 		document.body.appendChild( btn );

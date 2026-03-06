@@ -29,10 +29,14 @@ $wrapper_attributes = get_block_wrapper_attributes( [ 'class' => $section_class 
 		<?php endif; ?>
 
 		<div class="bs-metrics__grid js-stagger" role="list">
-			<?php foreach ( $items as $index => $item ) :
-				$value   = isset( $item['value'] )  ? sanitize_text_field( $item['value'] )  : '';
-				$prefix  = isset( $item['prefix'] ) ? sanitize_text_field( $item['prefix'] ) : '';
-				$suffix  = isset( $item['suffix'] ) ? sanitize_text_field( $item['suffix'] ) : '';
+				<?php foreach ( $items as $index => $item ) :
+					// Support legacy "number" key used by existing pattern content.
+					$value   = isset( $item['value'] )  ? sanitize_text_field( $item['value'] )  : '';
+					if ( '' === $value && isset( $item['number'] ) ) {
+						$value = sanitize_text_field( (string) $item['number'] );
+					}
+					$prefix  = isset( $item['prefix'] ) ? sanitize_text_field( $item['prefix'] ) : '';
+					$suffix  = isset( $item['suffix'] ) ? sanitize_text_field( $item['suffix'] ) : '';
 				$label   = isset( $item['label'] )  ? sanitize_text_field( $item['label'] )  : '';
 				$numeric = (float) preg_replace( '/[^0-9.]/', '', $value );
 				?>

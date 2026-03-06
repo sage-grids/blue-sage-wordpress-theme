@@ -31,16 +31,10 @@ if ( $colorize ) {
 
 $wrapper_attributes = get_block_wrapper_attributes( [ 'class' => $section_class ] );
 
-/**
- * Output a single set of logo items.
- *
- * @param array $logos     Logo attribute objects.
- * @param bool  $aria_hidden Whether to mark this set as aria-hidden (duplicate set).
- */
-function blue_sage_render_logo_set( array $logos, bool $aria_hidden = false ): void {
+$render_logo_set = static function ( array $items, bool $aria_hidden = false ): void {
 	$hidden_attr = $aria_hidden ? ' aria-hidden="true"' : '';
 	echo '<div class="bs-logos__set"' . $hidden_attr . '>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	foreach ( $logos as $logo ) {
+	foreach ( $items as $logo ) {
 		$media_url = isset( $logo['mediaUrl'] ) ? esc_url( $logo['mediaUrl'] )             : '';
 		$media_alt = isset( $logo['mediaAlt'] ) ? sanitize_text_field( $logo['mediaAlt'] ) : '';
 		$link_url  = isset( $logo['linkUrl'] )  ? esc_url( $logo['linkUrl'] )              : '';
@@ -60,7 +54,7 @@ function blue_sage_render_logo_set( array $logos, bool $aria_hidden = false ): v
 		echo '</div>';
 	}
 	echo '</div>';
-}
+};
 ?>
 <section <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 	<div class="bs-logos__inner">
@@ -71,15 +65,15 @@ function blue_sage_render_logo_set( array $logos, bool $aria_hidden = false ): v
 
 		<?php if ( $logos ) : ?>
 		<div class="bs-logos__track-wrap">
-			<div class="bs-logos__track<?php echo $marquee ? ' bs-logos__track--marquee' : ''; ?>"
-				 style="<?php echo $marquee ? '--bs-marquee-speed: ' . esc_attr( $speed ) . 's' : ''; ?>"
-				 <?php echo $marquee ? 'aria-label="' . esc_attr__( 'Partner logos', 'blue-sage' ) . '"' : ''; ?>>
-				<?php blue_sage_render_logo_set( $logos, false ); ?>
-				<?php if ( $marquee ) : ?>
-					<?php blue_sage_render_logo_set( $logos, true ); ?>
-				<?php endif; ?>
+				<div class="bs-logos__track<?php echo $marquee ? ' bs-logos__track--marquee' : ''; ?>"
+					 style="<?php echo $marquee ? '--bs-marquee-speed: ' . esc_attr( $speed ) . 's' : ''; ?>"
+					 <?php echo $marquee ? 'aria-label="' . esc_attr__( 'Partner logos', 'blue-sage' ) . '"' : ''; ?>>
+					<?php $render_logo_set( $logos, false ); ?>
+					<?php if ( $marquee ) : ?>
+						<?php $render_logo_set( $logos, true ); ?>
+					<?php endif; ?>
+				</div>
 			</div>
-		</div>
 		<?php endif; ?>
 
 	</div>
