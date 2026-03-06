@@ -1,6 +1,6 @@
 # Admin Branding Guide
 
-Blue Sage is a white-labeled, premium theme that includes custom branding for **SAGE GRIDS LTD**. This document outlines how branding is integrated into the WordPress admin panel and where to make changes if necessary.
+Blue Sage is a white-labeled, high-end theme that includes custom branding for **SAGE GRIDS LTD**. This document outlines how branding is integrated into the WordPress admin panel and where to make changes if necessary.
 
 ## 1. PHP Docblocks
 Every PHP file in the theme must include a standardized header docblock. This credits the author and company and provides relevant links for developers.
@@ -13,7 +13,7 @@ Every PHP file in the theme must include a standardized header docblock. This cr
  * @package BlueSage
  * @author Ilyas Serter <hello@sagegrids.com>
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
- * @link https://www.iserter.com
+ * @link https://github.com/sage-grids/blue-sage-wordpress-theme
  */
 ```
 

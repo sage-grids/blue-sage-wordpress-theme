@@ -3,7 +3,7 @@
 Welcome to the **Blue Sage** developer guide. This document provides a high-level overview of the theme's architecture, philosophy, and core technologies.
 
 ## 1. Theme Philosophy
-Blue Sage is a **Premium Hybrid WordPress Theme** designed for AI-powered SaaS and enterprise websites. It balances the power of the Block Editor (Gutenberg) with the performance and control of a custom PHP-based backend.
+Blue Sage is a **High-End Hybrid WordPress Theme** designed for AI-powered SaaS and enterprise websites. It balances the power of the Block Editor (Gutenberg) with the performance and control of a custom PHP-based backend.
 
 - **Performance First:** No heavy frameworks (like Tailwind or Bootstrap). We use Vanilla CSS and modern CSS variables.
 - **Privacy & Security:** Self-hosted fonts, no external CDN dependencies, and strictly sanitized data.

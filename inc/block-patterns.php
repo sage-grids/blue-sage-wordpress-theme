@@ -8,7 +8,7 @@
  * @package BlueSage
  * @author Ilyas Serter <hello@sagegrids.com>
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
- * @link https://www.iserter.com
+ * @link https://github.com/sage-grids/blue-sage-wordpress-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

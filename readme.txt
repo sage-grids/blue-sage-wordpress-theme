@@ -8,11 +8,11 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A premium Full Site Editing block theme for high-end agencies, SaaS companies, and modern businesses.
+An elegant Full Site Editing block theme for high-end agencies, SaaS companies, and modern businesses.
 
 == Description ==
 
-Blue Sage is a premium WordPress FSE block theme built for brands that lead, not follow. Named after the sage — a figure of wisdom and authority — the theme communicates clarity, precision, and quiet confidence.
+Blue Sage is a high-end WordPress FSE block theme built for brands that lead, not follow. Named after the sage — a figure of wisdom and authority — the theme communicates clarity, precision, and quiet confidence.
 
 Features:
 * Full Site Editing (FSE) with block patterns and global styles

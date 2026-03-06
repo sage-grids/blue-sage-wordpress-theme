@@ -1,9 +1,9 @@
 /*
 Theme Name:         Blue Sage
-Theme URI:          https://github.com/iserter/blue-sage-wordpress-theme
+Theme URI:          https://github.com/sage-grids/blue-sage-wordpress-theme
 Author:             iSerter
-Author URI:         https://github.com/iserter
-Description:        A clean, minimalist, premium WordPress block theme for modern businesses. Built for agencies, SaaS companies, and high-end service brands that demand clarity and presence.
+Author URI:         https://github.com/sage-grids
+Description:        A clean, minimalist, elegant WordPress block theme for modern businesses. Built for agencies, SaaS companies, and high-end service brands that demand clarity and presence.
 Version:            1.0.2
 Requires at least:  6.4
 Tested up to:       6.7
@@ -776,6 +776,84 @@ pre code {
 .bs-section--dark .wp-block-button:not([class*="is-style"]) .wp-block-button__link:hover,
 .has-deep-navy-background-color .wp-block-button:not([class*="is-style"]) .wp-block-button__link:hover {
 	background-color: var(--bs-off-white);
+}
+
+
+/* ============================================================
+   8b. BS-BTN — Custom block button component
+   Used by Blue Sage custom blocks (Hero, CTA, etc.)
+   ============================================================ */
+
+.bs-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 12px 28px;
+	font-family: var(--bs-font-display);
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.2;
+	border-radius: var(--bs-radius-sm);
+	border: 1.5px solid transparent;
+	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	transition:
+		background-color var(--bs-t-fast),
+		color var(--bs-t-fast),
+		border-color var(--bs-t-fast),
+		box-shadow var(--bs-t-fast),
+		transform var(--bs-t-fast);
+}
+
+.bs-btn:hover {
+	transform: translateY(-1px);
+	text-decoration: none;
+}
+
+.bs-btn:active {
+	transform: translateY(0);
+}
+
+/* Primary — rich blue fill */
+.bs-btn--primary {
+	background-color: var(--bs-rich-blue);
+	color: var(--bs-white);
+	border-color: var(--bs-rich-blue);
+}
+
+.bs-btn--primary:hover {
+	background-color: #1840b8;
+	border-color: #1840b8;
+	color: var(--bs-white);
+	box-shadow: var(--bs-shadow-blue-sm);
+}
+
+/* Ghost — for light backgrounds */
+.bs-btn--ghost {
+	background-color: transparent;
+	color: var(--bs-gray-700);
+	border-color: var(--bs-gray-300);
+}
+
+.bs-btn--ghost:hover {
+	background-color: var(--bs-gray-100);
+	border-color: var(--bs-gray-500);
+	color: var(--bs-near-black);
+}
+
+/* Ghost Light — for dark/navy backgrounds */
+.bs-btn--ghost-light {
+	background-color: transparent;
+	color: rgba(255, 255, 255, 0.85);
+	border-color: rgba(255, 255, 255, 0.30);
+}
+
+.bs-btn--ghost-light:hover {
+	background-color: rgba(255, 255, 255, 0.10);
+	border-color: rgba(255, 255, 255, 0.60);
+	color: var(--bs-white);
 }
 
 

@@ -5,7 +5,7 @@
 	"version": "1.0.0",
 	"title": "BS — Hero",
 	"category": "blue-sage",
-	"description": "Premium hero section in three layouts: Centered Statement (dark), Split (light), or Editorial (oversized type).",
+	"description": "High-end hero section in three layouts: Centered Statement (dark), Split (light), or Editorial (oversized type).",
 	"keywords": [ "hero", "banner", "header", "landing" ],
 	"textdomain": "blue-sage",
 	"attributes": {

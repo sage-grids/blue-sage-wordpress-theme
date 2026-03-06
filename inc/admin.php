@@ -5,7 +5,7 @@
  * @package BlueSage
  * @author Ilyas Serter <hello@sagegrids.com>
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
- * @link https://www.iserter.com
+ * @link https://github.com/sage-grids/blue-sage-wordpress-theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -37,7 +37,7 @@ function blue_sage_admin_page_render(): void {
 
 		<div class="card">
 			<h2><?php _e( 'About SAGE GRIDS', 'blue-sage' ); ?></h2>
-			<p><?php _e( 'Blue Sage is a premium WordPress theme developed by SAGE GRIDS LTD. We build AI-powered systems with expertise and precision.', 'blue-sage' ); ?></p>
+			<p><?php _e( 'Blue Sage is an elegant WordPress theme developed by SAGE GRIDS LTD. We build AI-powered systems with expertise and precision.', 'blue-sage' ); ?></p>
 			<p>
 				<a href="https://www.sagegrids.com" class="button button-primary" target="_blank"><?php _e( 'Visit SAGE GRIDS', 'blue-sage' ); ?></a>
 				<a href="https://www.iserter.com" class="button" target="_blank"><?php _e( 'Author Website', 'blue-sage' ); ?></a>

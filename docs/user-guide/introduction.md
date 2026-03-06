@@ -1,6 +1,6 @@
 # Welcome to Blue Sage
 
-Congratulations on choosing **Blue Sage**, a premium WordPress theme designed for AI-powered businesses, SaaS companies, and high-end service brands. 
+Congratulations on choosing **Blue Sage**, an elegant WordPress theme designed for AI-powered businesses, SaaS companies, and high-end service brands. 
 
 This guide is designed for non-technical users to help you get the most out of your new website.
 
