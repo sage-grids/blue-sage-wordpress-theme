@@ -1,0 +1,83 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/pricing-table",
+	"version": "1.0.0",
+	"title": "BS — Pricing Table",
+	"category": "blue-sage",
+	"description": "3-column pricing table with optional monthly/annual billing toggle. Most Popular tier is visually elevated.",
+	"keywords": [ "pricing", "plans", "billing", "tiers", "costs" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"subheading": {
+			"type": "string",
+			"default": ""
+		},
+		"billingToggle": {
+			"type": "boolean",
+			"default": true
+		},
+		"tiers": {
+			"type": "array",
+			"default": [
+				{
+					"name": "Starter",
+					"badge": "",
+					"monthlyPrice": "29",
+					"annualPrice": "19",
+					"currency": "$",
+					"description": "Perfect for individuals and small teams getting started.",
+					"features": [ "Up to 5 users", "10 GB storage", "Basic analytics", "Email support" ],
+					"ctaLabel": "Get started",
+					"ctaUrl": "#",
+					"isPopular": false
+				},
+				{
+					"name": "Pro",
+					"badge": "Most Popular",
+					"monthlyPrice": "79",
+					"annualPrice": "59",
+					"currency": "$",
+					"description": "For growing teams that need more power and flexibility.",
+					"features": [ "Up to 25 users", "100 GB storage", "Advanced analytics", "Priority support", "Custom integrations", "API access" ],
+					"ctaLabel": "Start free trial",
+					"ctaUrl": "#",
+					"isPopular": true
+				},
+				{
+					"name": "Enterprise",
+					"badge": "",
+					"monthlyPrice": "199",
+					"annualPrice": "149",
+					"currency": "$",
+					"description": "Unlimited scale with dedicated support and SLA.",
+					"features": [ "Unlimited users", "Unlimited storage", "Custom analytics", "24/7 dedicated support", "Custom contracts", "SSO & SAML", "SLA guarantee" ],
+					"ctaLabel": "Contact sales",
+					"ctaUrl": "#",
+					"isPopular": false
+				}
+			],
+			"items": { "type": "object" }
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":      "file:./style.css",
+	"viewScript": "file:./index.js",
+	"render":     "file:./render.php"
+}

@@ -1,0 +1,78 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/testimonial-carousel",
+	"version": "1.0.0",
+	"title": "BS — Testimonial Carousel",
+	"category": "blue-sage",
+	"description": "Social proof section with crossfade carousel. Keyboard accessible, autoplay, dot navigation. Light or dark background.",
+	"keywords": [ "testimonial", "quote", "review", "social proof", "carousel" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"darkBg": {
+			"type": "boolean",
+			"default": false
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"autoplayDelay": {
+			"type": "integer",
+			"default": 5000
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"quote": "Blue Sage completely transformed how we present our brand online. The attention to detail is extraordinary — it shows in every pixel.",
+					"authorName": "Sarah Chen",
+					"authorTitle": "CEO",
+					"authorCompany": "Meridian Studio",
+					"avatarUrl": "",
+					"logoUrl": "",
+					"logoAlt": ""
+				},
+				{
+					"quote": "We saw a 40% increase in conversion rate within the first month. The premium feel translates directly to client trust.",
+					"authorName": "Marcus Webb",
+					"authorTitle": "Founder",
+					"authorCompany": "Apex Digital",
+					"avatarUrl": "",
+					"logoUrl": "",
+					"logoAlt": ""
+				},
+				{
+					"quote": "Finally, a WordPress theme that doesn't look like a WordPress theme. Our clients constantly ask who built our site.",
+					"authorName": "Priya Nair",
+					"authorTitle": "Creative Director",
+					"authorCompany": "Form & Function",
+					"avatarUrl": "",
+					"logoUrl": "",
+					"logoAlt": ""
+				}
+			],
+			"items": { "type": "object" }
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":      "file:./style.css",
+	"viewScript": "file:./index.js",
+	"render":     "file:./render.php"
+}

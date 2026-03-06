@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/cta-section",
+	"version": "1.0.0",
+	"title": "BS — CTA Section",
+	"category": "blue-sage",
+	"description": "High-conversion call-to-action section. Full-width dark variant with optional glow, or mid-page inline box.",
+	"keywords": [ "cta", "call to action", "conversion", "button" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"layout": {
+			"type": "string",
+			"default": "full-dark",
+			"enum": [ "full-dark", "inline-box" ]
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"subtext": {
+			"type": "string",
+			"default": ""
+		},
+		"primaryCta": {
+			"type": "object",
+			"default": { "label": "Get Started Free", "url": "#", "newTab": false }
+		},
+		"secondaryCta": {
+			"type": "object",
+			"default": { "label": "See the Demo", "url": "#", "newTab": false }
+		},
+		"glowEffect": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":  "file:./style.css",
+	"render": "file:./render.php"
+}

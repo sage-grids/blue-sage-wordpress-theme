@@ -1,0 +1,300 @@
+/* ============================================================
+   Pricing Table Block
+   ============================================================ */
+
+.bs-pricing {
+	padding: var(--bs-section-y) var(--bs-container-padding);
+	background-color: var(--bs-off-white);
+}
+
+.bs-pricing__inner {
+	max-width: var(--bs-wide-width);
+	margin: 0 auto;
+}
+
+/* Header */
+.bs-pricing__header {
+	text-align: center;
+	max-width: 680px;
+	margin: 0 auto 64px;
+}
+
+.bs-pricing__heading {
+	font-family: var(--bs-font-display);
+	font-size: clamp(32px, 4vw, 48px);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.15;
+	color: var(--bs-near-black);
+	margin-top: 12px;
+	margin-bottom: 16px;
+}
+
+.bs-pricing__subheading {
+	font-size: 18px;
+	line-height: 1.6;
+	color: var(--bs-gray-500);
+}
+
+/* Billing toggle */
+.bs-pricing__toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin-top: 32px;
+	padding: 4px;
+	background-color: var(--bs-gray-100);
+	border-radius: var(--bs-radius-full);
+}
+
+.bs-pricing__toggle-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 20px;
+	border: none;
+	border-radius: var(--bs-radius-full);
+	background: transparent;
+	font-family: var(--bs-font-body);
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--bs-gray-500);
+	cursor: pointer;
+	transition: background var(--bs-t-fast), color var(--bs-t-fast);
+}
+
+.bs-pricing__toggle-btn.is-active {
+	background-color: var(--bs-white);
+	color: var(--bs-near-black);
+	box-shadow: var(--bs-shadow-sm);
+}
+
+.bs-pricing__toggle-btn:focus-visible {
+	outline: 2px solid var(--bs-rich-blue);
+	outline-offset: 2px;
+}
+
+/* Badge inside toggle */
+.bs-pricing__toggle-btn .bs-badge--sage {
+	font-size: 11px;
+	padding: 2px 8px;
+}
+
+/* Grid */
+.bs-pricing__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 24px;
+	align-items: start;
+}
+
+/* Tier card */
+.bs-pricing__tier {
+	position: relative;
+	background-color: var(--bs-white);
+	border: 1px solid var(--bs-gray-200);
+	border-radius: var(--bs-radius-lg);
+	padding: 40px 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	transition: box-shadow var(--bs-t-base);
+}
+
+.bs-pricing__tier:hover {
+	box-shadow: var(--bs-shadow-md);
+}
+
+/* Popular tier */
+.bs-pricing__tier--popular {
+	background-color: var(--bs-rich-blue);
+	border-color: var(--bs-rich-blue);
+	color: #fff;
+	transform: translateY(-8px);
+	box-shadow: 0 24px 48px rgba(30, 79, 216, 0.25);
+	z-index: 1;
+}
+
+.bs-pricing__tier--popular:hover {
+	box-shadow: 0 32px 56px rgba(30, 79, 216, 0.30);
+}
+
+/* Badge */
+.bs-pricing__badge {
+	position: absolute;
+	top: -14px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--bs-deep-navy);
+	color: var(--bs-white);
+	font-family: var(--bs-font-display);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 4px 16px;
+	border-radius: var(--bs-radius-full);
+	white-space: nowrap;
+}
+
+/* Tier header */
+.bs-pricing__tier-header {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.bs-pricing__tier-name {
+	font-family: var(--bs-font-display);
+	font-size: 18px;
+	font-weight: 700;
+	color: inherit;
+	margin: 0;
+}
+
+.bs-pricing__tier--popular .bs-pricing__tier-name {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+/* Price */
+.bs-pricing__price {
+	display: flex;
+	align-items: flex-start;
+	gap: 2px;
+	line-height: 1;
+}
+
+.bs-pricing__currency {
+	font-family: var(--bs-font-display);
+	font-size: 20px;
+	font-weight: 600;
+	color: var(--bs-near-black);
+	margin-top: 8px;
+}
+
+.bs-pricing__tier--popular .bs-pricing__currency {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.bs-pricing__amount {
+	font-family: var(--bs-font-display);
+	font-size: clamp(44px, 5vw, 56px);
+	font-weight: 800;
+	letter-spacing: -0.04em;
+	color: var(--bs-near-black);
+}
+
+.bs-pricing__tier--popular .bs-pricing__amount {
+	color: var(--bs-white);
+}
+
+.bs-pricing__period {
+	font-size: 14px;
+	color: var(--bs-gray-500);
+	margin-top: 12px;
+	align-self: flex-end;
+}
+
+.bs-pricing__tier--popular .bs-pricing__period {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.bs-pricing__description {
+	font-size: 14px;
+	line-height: 1.6;
+	color: var(--bs-gray-500);
+	margin-top: 4px;
+}
+
+.bs-pricing__tier--popular .bs-pricing__description {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* Features list */
+.bs-pricing__features {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	flex: 1;
+}
+
+.bs-pricing__feature {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	font-size: 14px;
+	color: var(--bs-gray-700);
+	line-height: 1.5;
+}
+
+.bs-pricing__tier--popular .bs-pricing__feature {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.bs-pricing__check {
+	flex-shrink: 0;
+	margin-top: 1px;
+}
+
+/* Override check circle color on popular tier */
+.bs-pricing__tier--popular .bs-pricing__check circle {
+	fill: rgba(255, 255, 255, 0.15);
+	fill-opacity: 1;
+}
+.bs-pricing__tier--popular .bs-pricing__check path {
+	stroke: #fff;
+}
+
+/* CTA */
+.bs-pricing__cta {
+	display: block;
+	text-align: center;
+	padding: 14px 24px;
+	border-radius: var(--bs-radius-sm);
+	font-family: var(--bs-font-display);
+	font-size: 15px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: background var(--bs-t-fast), color var(--bs-t-fast), transform var(--bs-t-fast), box-shadow var(--bs-t-fast);
+	background-color: var(--bs-rich-blue);
+	color: var(--bs-white);
+}
+
+.bs-pricing__cta:hover {
+	background-color: var(--bs-deep-navy);
+	transform: translateY(-1px);
+	box-shadow: var(--bs-shadow-blue-sm);
+}
+
+.bs-pricing__tier--popular .bs-pricing__cta {
+	background-color: var(--bs-white);
+	color: var(--bs-rich-blue);
+}
+
+.bs-pricing__tier--popular .bs-pricing__cta:hover {
+	background-color: var(--bs-off-white);
+	transform: translateY(-1px);
+	box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 1023px) {
+	.bs-pricing__grid {
+		grid-template-columns: 1fr;
+		max-width: 480px;
+		margin: 0 auto;
+	}
+
+	.bs-pricing__tier--popular {
+		transform: none;
+		order: -1;
+	}
+}
+
+@media (max-width: 767px) {
+	.bs-pricing__header {
+		margin-bottom: 48px;
+	}
+}

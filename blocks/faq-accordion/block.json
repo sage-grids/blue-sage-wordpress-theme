@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/faq-accordion",
+	"version": "1.0.0",
+	"title": "BS — FAQ Accordion",
+	"category": "blue-sage",
+	"description": "Clean, borderless FAQ accordion with animated expand/collapse and full keyboard accessibility.",
+	"keywords": [ "faq", "accordion", "questions", "answers", "help" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"allowMulti": {
+			"type": "boolean",
+			"default": false
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "question": "How does it work?", "answer": "Getting started is simple. Sign up, connect your tools, and you are live in minutes. Our onboarding guides you through every step." },
+				{ "question": "Is there a free trial?", "answer": "Yes — every plan includes a 14-day free trial with no credit card required. You get full access to all features from day one." },
+				{ "question": "Can I change my plan later?", "answer": "Absolutely. You can upgrade, downgrade, or cancel at any time from your account settings. Changes take effect immediately." },
+				{ "question": "What does the onboarding look like?", "answer": "After signing up you will be matched with an onboarding specialist who will help you configure your workspace and train your team." },
+				{ "question": "Do you offer volume discounts?", "answer": "Yes. Teams of 20 or more qualify for custom pricing. Reach out via our contact page and we will build a plan that fits your budget." }
+			],
+			"items": { "type": "object" }
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":      "file:./style.css",
+	"viewScript": "file:./index.js",
+	"render":     "file:./render.php"
+}

@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/process-steps",
+	"version": "1.0.0",
+	"title": "BS — Process / Steps",
+	"category": "blue-sage",
+	"description": "Numbered steps or vertical timeline layout to communicate process, workflow, or milestones.",
+	"keywords": [ "process", "steps", "timeline", "workflow", "how it works" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"layout": {
+			"type": "string",
+			"default": "numbered",
+			"enum": [ "numbered", "timeline" ]
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"subheading": {
+			"type": "string",
+			"default": ""
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "number": "01", "title": "Discover", "body": "We start with a deep dive into your goals, audience, and competitive landscape to build a solid strategic foundation." },
+				{ "number": "02", "title": "Design",   "body": "Our design team crafts high-fidelity mockups that balance visual impact with clear user experience principles." },
+				{ "number": "03", "title": "Build",    "body": "Engineering brings the designs to life using modern, performant tooling with clean, maintainable code." },
+				{ "number": "04", "title": "Launch",   "body": "We deploy, monitor, and iterate. You go live with confidence knowing everything has been tested and verified." }
+			],
+			"items": { "type": "object" }
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":  "file:./style.css",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/logo-wall",
+	"version": "1.0.0",
+	"title": "BS — Logo Wall",
+	"category": "blue-sage",
+	"description": "Client or partner logos with optional infinite-scroll marquee on desktop. Grayscale with hover-to-color or full-color mode.",
+	"keywords": [ "logos", "clients", "partners", "brands", "marquee", "social proof" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"marquee": {
+			"type": "boolean",
+			"default": true
+		},
+		"speed": {
+			"type": "integer",
+			"default": 40
+		},
+		"colorize": {
+			"type": "boolean",
+			"default": false
+		},
+		"logos": {
+			"type": "array",
+			"default": [],
+			"items": { "type": "object" }
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":  "file:./style.css",
+	"render": "file:./render.php"
+}

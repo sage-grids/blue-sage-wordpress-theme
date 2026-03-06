@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/team-grid",
+	"version": "1.0.0",
+	"title": "BS — Team Grid",
+	"category": "blue-sage",
+	"description": "Photo grid of team members with hover overlay revealing bio and social links.",
+	"keywords": [ "team", "people", "staff", "members", "about" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"photoShape": {
+			"type": "string",
+			"default": "square",
+			"enum": [ "square", "circle" ]
+		},
+		"columns": {
+			"type": "integer",
+			"default": 4,
+			"enum": [ 3, 4 ]
+		},
+		"members": {
+			"type": "array",
+			"default": [
+				{ "name": "Alex Rivera",   "title": "Chief Executive Officer",  "bio": "10 years building products that scale. Passionate about design-led thinking and team culture.", "photoUrl": "", "photoAlt": "", "linkedin": "#", "twitter": "#" },
+				{ "name": "Sam Chen",      "title": "Head of Design",           "bio": "Former creative director with an obsession for clean interfaces and purposeful typography.", "photoUrl": "", "photoAlt": "", "linkedin": "#", "twitter": "#" },
+				{ "name": "Jordan Blake",  "title": "VP of Engineering",        "bio": "Full-stack engineer who cares deeply about performance, accessibility, and developer experience.", "photoUrl": "", "photoAlt": "", "linkedin": "#", "twitter": "" },
+				{ "name": "Morgan Ellis",  "title": "Director of Marketing",    "bio": "Growth strategist with a background in B2B SaaS and a track record of 10x pipeline results.", "photoUrl": "", "photoAlt": "", "linkedin": "#", "twitter": "#" }
+			],
+			"items": { "type": "object" }
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":  "file:./style.css",
+	"render": "file:./render.php"
+}

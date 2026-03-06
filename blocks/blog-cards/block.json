@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/blog-cards",
+	"version": "1.0.0",
+	"title": "BS — Blog Cards",
+	"category": "blue-sage",
+	"description": "Dynamic post cards in three layouts: standard grid, featured single, or minimal list.",
+	"keywords": [ "blog", "posts", "articles", "news", "cards" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"layout": {
+			"type": "string",
+			"default": "standard",
+			"enum": [ "standard", "featured", "list" ]
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"postsPerPage": {
+			"type": "integer",
+			"default": 3
+		},
+		"categoryId": {
+			"type": "integer",
+			"default": 0
+		},
+		"showExcerpt": {
+			"type": "boolean",
+			"default": true
+		},
+		"showReadTime": {
+			"type": "boolean",
+			"default": true
+		},
+		"showAuthor": {
+			"type": "boolean",
+			"default": true
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":  "file:./style.css",
+	"render": "file:./render.php"
+}

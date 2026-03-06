@@ -1,0 +1,128 @@
+/* ============================================================
+   Metrics Bar Block
+   ============================================================ */
+
+.bs-metrics {
+	padding: var(--bs-section-y) var(--bs-container-padding);
+}
+
+.bs-metrics--dark {
+	background-color: var(--bs-deep-navy);
+}
+
+.bs-metrics--light {
+	background-color: var(--bs-off-white);
+}
+
+.bs-metrics__inner {
+	max-width: var(--bs-wide-width);
+	margin: 0 auto;
+	text-align: center;
+}
+
+.bs-metrics__eyebrow {
+	display: block;
+	margin-bottom: 40px;
+}
+
+/* Grid */
+.bs-metrics__grid {
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.bs-metrics__item {
+	flex: 1;
+	min-width: 140px;
+	padding: 16px 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+/* Vertical dividers */
+.bs-metrics__divider {
+	width: 1px;
+	align-self: stretch;
+	background-color: rgba(255, 255, 255, 0.10);
+	flex-shrink: 0;
+}
+
+.bs-metrics--light .bs-metrics__divider {
+	background-color: var(--bs-gray-200);
+}
+
+/* Counter number */
+.bs-metrics__number {
+	font-family: var(--bs-font-display);
+	font-size: clamp(40px, 5vw, 64px);
+	font-weight: 800;
+	letter-spacing: -0.04em;
+	line-height: 1;
+	color: var(--bs-white);
+	display: block;
+	tab-size: 4;
+}
+
+.bs-metrics--light .bs-metrics__number {
+	color: var(--bs-rich-blue);
+}
+
+/* Label */
+.bs-metrics__label {
+	font-family: var(--bs-font-display);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.50);
+	display: block;
+}
+
+.bs-metrics--light .bs-metrics__label {
+	color: var(--bs-gray-500);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 767px) {
+	.bs-metrics__grid {
+		display: grid;
+		grid-template-columns: 1fr 1px 1fr;
+	}
+
+	.bs-metrics__item {
+		padding: 24px 16px;
+		min-width: auto;
+	}
+
+	.bs-metrics__divider {
+		height: auto;
+		align-self: stretch;
+	}
+}
+
+@media (max-width: 479px) {
+	.bs-metrics__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.bs-metrics__divider {
+		display: none;
+	}
+
+	.bs-metrics__item {
+		padding: 20px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.bs-metrics--light .bs-metrics__item {
+		border-bottom-color: var(--bs-gray-100);
+	}
+
+	.bs-metrics__item:last-child {
+		border-bottom: none;
+	}
+}

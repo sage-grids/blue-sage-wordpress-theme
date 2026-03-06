@@ -17,3 +17,5 @@ define( 'BLUE_SAGE_URI', get_template_directory_uri() );
 require_once BLUE_SAGE_DIR . '/inc/setup.php';
 require_once BLUE_SAGE_DIR . '/inc/enqueue.php';
 require_once BLUE_SAGE_DIR . '/inc/helpers.php';
+require_once BLUE_SAGE_DIR . '/inc/custom-blocks.php';
+require_once BLUE_SAGE_DIR . '/inc/block-patterns.php';

@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/metrics-bar",
+	"version": "1.0.0",
+	"title": "BS — Metrics Bar",
+	"category": "blue-sage",
+	"description": "Full-width statistics section with animated scroll-triggered counters. Dark or light background.",
+	"keywords": [ "metrics", "stats", "counter", "numbers", "social proof" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"darkBg": {
+			"type": "boolean",
+			"default": true
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "value": "10000", "prefix": "", "suffix": "+", "label": "Happy Customers" },
+				{ "value": "99.9",  "prefix": "", "suffix": "%", "label": "Uptime SLA"       },
+				{ "value": "200",   "prefix": "", "suffix": "+", "label": "Integrations"      },
+				{ "value": "4.9",   "prefix": "", "suffix": "/5","label": "Average Rating"    }
+			],
+			"items": { "type": "object" }
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":  "file:./style.css",
+	"render": "file:./render.php"
+}

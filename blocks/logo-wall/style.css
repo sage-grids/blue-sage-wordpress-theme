@@ -1,0 +1,152 @@
+/* ============================================================
+   Logo Wall Block
+   ============================================================ */
+
+.bs-logos {
+	padding: clamp(32px, 5vw, 64px) var(--bs-container-padding);
+	border-top: 1px solid var(--bs-gray-100);
+	border-bottom: 1px solid var(--bs-gray-100);
+}
+
+.bs-logos__inner {
+	max-width: var(--bs-wide-width);
+	margin: 0 auto;
+}
+
+/* Eyebrow */
+.bs-logos__eyebrow {
+	text-align: center;
+	margin-bottom: 32px;
+}
+
+/* Track wrapper — clips the overflow for marquee */
+.bs-logos__track-wrap {
+	overflow: hidden;
+	-webkit-mask-image: linear-gradient(
+		to right,
+		transparent 0%,
+		black 10%,
+		black 90%,
+		transparent 100%
+	);
+	mask-image: linear-gradient(
+		to right,
+		transparent 0%,
+		black 10%,
+		black 90%,
+		transparent 100%
+	);
+}
+
+/* Track */
+.bs-logos__track {
+	display: flex;
+	align-items: center;
+	gap: 64px;
+	width: max-content;
+}
+
+/* Marquee animation */
+.bs-logos__track--marquee {
+	animation: bs-marquee var(--bs-marquee-speed, 40s) linear infinite;
+}
+
+.bs-logos__track--marquee:hover,
+.bs-logos__track--marquee:focus-within {
+	animation-play-state: paused;
+}
+
+@keyframes bs-marquee {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+/* Set — one complete list of logos */
+.bs-logos__set {
+	display: flex;
+	align-items: center;
+	gap: 64px;
+	flex-shrink: 0;
+}
+
+/* Logo item */
+.bs-logos__item {
+	display: flex;
+	align-items: center;
+	flex-shrink: 0;
+}
+
+.bs-logos__link {
+	display: block;
+	line-height: 0;
+}
+
+.bs-logos__img {
+	height: 36px;
+	width: auto;
+	max-width: 140px;
+	object-fit: contain;
+	display: block;
+}
+
+/* Grayscale mode (default) */
+.bs-logos:not(.bs-logos--colorize) .bs-logos__img {
+	filter: grayscale(100%);
+	opacity: 0.55;
+	transition: filter var(--bs-t-base), opacity var(--bs-t-base);
+}
+
+.bs-logos:not(.bs-logos--colorize) .bs-logos__item:hover .bs-logos__img {
+	filter: grayscale(0%);
+	opacity: 1;
+}
+
+/* Colorize mode — full color always */
+.bs-logos--colorize .bs-logos__img {
+	opacity: 0.85;
+	transition: opacity var(--bs-t-fast);
+}
+
+.bs-logos--colorize .bs-logos__item:hover .bs-logos__img {
+	opacity: 1;
+}
+
+/* ---- Reduced motion / Mobile ---- */
+
+@media (prefers-reduced-motion: reduce) {
+	.bs-logos__track--marquee {
+		animation: none;
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 32px;
+	}
+
+	.bs-logos__set[aria-hidden="true"] {
+		display: none;
+	}
+}
+
+@media (max-width: 767px) {
+	.bs-logos__track,
+	.bs-logos__track--marquee {
+		animation: none;
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 32px 40px;
+	}
+
+	.bs-logos__set[aria-hidden="true"] {
+		display: none;
+	}
+
+	.bs-logos__track-wrap {
+		-webkit-mask-image: none;
+		mask-image: none;
+	}
+}

@@ -1,0 +1,45 @@
+/* ============================================================
+   Hero Block — Editor Preview Styles
+   Mirrors front-end layout so the editor preview matches output.
+   ============================================================ */
+
+.wp-block[data-type="blue-sage/hero"] .bs-hero--centered {
+	background-color: var(--bs-deep-navy);
+	padding: 80px 48px;
+	text-align: center;
+}
+
+.wp-block[data-type="blue-sage/hero"] .bs-hero--centered .bs-hero__heading {
+	color: #ffffff;
+}
+
+.wp-block[data-type="blue-sage/hero"] .bs-hero--centered .bs-hero__subheading {
+	color: rgba(255, 255, 255, 0.60);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-block[data-type="blue-sage/hero"] .bs-hero--split {
+	background-color: #ffffff;
+	padding: 80px 48px;
+}
+
+.wp-block[data-type="blue-sage/hero"] .bs-hero__inner--split {
+	display: grid;
+	grid-template-columns: 7fr 5fr;
+	gap: 64px;
+	align-items: center;
+}
+
+.wp-block[data-type="blue-sage/hero"] .bs-hero--editorial {
+	background-color: #ffffff;
+	padding: 80px 48px;
+}
+
+/* Keep gradient text visible in editor */
+.wp-block[data-type="blue-sage/hero"] .bs-gradient-text {
+	background: linear-gradient(135deg, #ffffff 0%, rgba(59, 130, 246, 0.90) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}

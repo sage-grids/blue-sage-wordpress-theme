@@ -1,0 +1,104 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "blue-sage/feature-grid",
+	"version": "1.0.0",
+	"title": "BS — Feature Grid",
+	"category": "blue-sage",
+	"description": "Showcase product features in three layouts: icon grid, alternating split rows, or large contrast cards.",
+	"keywords": [ "features", "grid", "icons", "benefits", "services" ],
+	"textdomain": "blue-sage",
+	"attributes": {
+		"layout": {
+			"type": "string",
+			"default": "icon-grid",
+			"enum": [ "icon-grid", "alternating", "large-cards" ]
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"heading": {
+			"type": "string",
+			"default": ""
+		},
+		"subheading": {
+			"type": "string",
+			"default": ""
+		},
+		"columns": {
+			"type": "integer",
+			"default": 3,
+			"enum": [ 2, 3 ]
+		},
+		"altBg": {
+			"type": "boolean",
+			"default": false
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"icon": "lightning",
+					"title": "Blazing Fast",
+					"body": "Optimized for Core Web Vitals. Ships with Lighthouse 95+ performance scores out of the box.",
+					"mediaUrl": "",
+					"mediaAlt": "",
+					"eyebrow": ""
+				},
+				{
+					"icon": "shield",
+					"title": "Secure by Default",
+					"body": "Hardened against OWASP top-10 vulnerabilities with automatic security updates and malware scanning.",
+					"mediaUrl": "",
+					"mediaAlt": "",
+					"eyebrow": ""
+				},
+				{
+					"icon": "chart",
+					"title": "Analytics Ready",
+					"body": "Structured data, JSON-LD, and Generative Engine Optimization built in from day one.",
+					"mediaUrl": "",
+					"mediaAlt": "",
+					"eyebrow": ""
+				},
+				{
+					"icon": "puzzle",
+					"title": "200+ Integrations",
+					"body": "Works seamlessly with all major WordPress plugins and third-party services without conflict.",
+					"mediaUrl": "",
+					"mediaAlt": "",
+					"eyebrow": ""
+				},
+				{
+					"icon": "headset",
+					"title": "Priority Support",
+					"body": "Dedicated support team with 24-hour response times and a comprehensive knowledge base.",
+					"mediaUrl": "",
+					"mediaAlt": "",
+					"eyebrow": ""
+				},
+				{
+					"icon": "sliders",
+					"title": "Fully Customizable",
+					"body": "Deep customization through the Site Editor with zero coding required. Your brand, your rules.",
+					"mediaUrl": "",
+					"mediaAlt": "",
+					"eyebrow": ""
+				}
+			],
+			"items": { "type": "object" }
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		},
+		"color": false
+	},
+	"style":  "file:./style.css",
+	"render": "file:./render.php"
+}
