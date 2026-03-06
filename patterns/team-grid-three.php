@@ -5,6 +5,11 @@
  * Categories: blue-sage-team
  * Description: Three-column team grid with circle photos.
  * Keywords: team, people, staff, founders
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/team-grid {

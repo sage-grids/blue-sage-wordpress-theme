@@ -5,6 +5,11 @@
  * Categories: blue-sage-features
  * Description: Clean FAQ accordion with 6 pre-filled questions. Single-open mode.
  * Keywords: faq, questions, answers, help, support
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/faq-accordion {

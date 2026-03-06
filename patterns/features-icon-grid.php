@@ -5,6 +5,11 @@
  * Categories: blue-sage-features
  * Description: 3-column icon feature grid with title and description per item.
  * Keywords: features, grid, icons, three-column
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/feature-grid {

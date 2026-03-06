@@ -6,6 +6,9 @@
  * Fonts are self-hosted via @font-face in style.css — no CDN requests.
  *
  * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

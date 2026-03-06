@@ -3,6 +3,9 @@
  * Blue Sage — Theme Entry Point
  *
  * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  * @version 1.0.0
  */
 
@@ -18,6 +21,7 @@ require_once BLUE_SAGE_DIR . '/inc/setup.php';
 require_once BLUE_SAGE_DIR . '/inc/enqueue.php';
 require_once BLUE_SAGE_DIR . '/inc/helpers.php';
 require_once BLUE_SAGE_DIR . '/inc/custom-blocks.php';
+require_once BLUE_SAGE_DIR . '/inc/admin.php';
 require_once BLUE_SAGE_DIR . '/inc/block-patterns.php';
 require_once BLUE_SAGE_DIR . '/inc/performance.php';
 require_once BLUE_SAGE_DIR . '/inc/seo.php';

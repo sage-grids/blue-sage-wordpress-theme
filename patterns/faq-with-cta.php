@@ -5,6 +5,11 @@
  * Categories: blue-sage-features
  * Description: FAQ accordion followed by an inline CTA box — answer questions then convert.
  * Keywords: faq, cta, questions, conversion
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:group {"layout":{"type":"constrained"}} -->

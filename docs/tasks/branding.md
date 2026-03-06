@@ -1,6 +1,6 @@
 Let's make sure the theme is branded. 
 
-- Each PHP file must include proper docblocks, crediting the author.
+- Each PHP file must include proper docblocks, crediting the author and his company.
 - a gentle/subtle "Designed by SAGE GRIDS" copyright in the theme footer.
 - More info/links on the admin panel side (on theme config page).
 

@@ -5,6 +5,11 @@
  * Categories: blue-sage-features
  * Description: Four-step numbered process section showing how the product works.
  * Keywords: process, steps, how it works, workflow
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/process-steps {

@@ -12,6 +12,9 @@
  * @var WP_Block $block      Block instance.
  *
  * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 
 $layout           = isset( $attributes['layout'] )          ? sanitize_text_field( $attributes['layout'] )          : 'centered';

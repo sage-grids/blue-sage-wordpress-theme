@@ -5,6 +5,11 @@
  * Categories: blue-sage-team
  * Description: Four-column team grid with square photos and hover bio overlay.
  * Keywords: team, people, staff, about
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/team-grid {

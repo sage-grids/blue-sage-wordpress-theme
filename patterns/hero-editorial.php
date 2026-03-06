@@ -5,6 +5,11 @@
  * Categories: blue-sage-heroes
  * Description: Oversized staircase typography hero with editorial magazine aesthetic.
  * Keywords: hero, editorial, typography, oversized, magazine
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/hero {

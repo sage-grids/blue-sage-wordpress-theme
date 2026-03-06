@@ -5,6 +5,11 @@
  * Categories: blue-sage-features
  * Description: 2-column large feature cards. Alternates blue and white backgrounds.
  * Keywords: features, cards, large, two-column
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/feature-grid {

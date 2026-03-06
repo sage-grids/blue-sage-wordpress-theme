@@ -5,6 +5,11 @@
  * Categories: blue-sage-cta
  * Description: Inline bordered CTA box with heading, subtext, and stacked action buttons.
  * Keywords: cta, inline, box, border, call to action
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/cta-section {

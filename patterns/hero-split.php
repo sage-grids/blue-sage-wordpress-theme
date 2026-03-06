@@ -5,6 +5,11 @@
  * Categories: blue-sage-heroes
  * Description: Two-column hero with text left and image right on a white background.
  * Keywords: hero, split, image, two-column, cta
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/hero {

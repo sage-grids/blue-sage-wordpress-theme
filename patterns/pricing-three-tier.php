@@ -5,6 +5,11 @@
  * Categories: blue-sage-pricing
  * Description: Three-column pricing table with billing toggle and highlighted Most Popular tier.
  * Keywords: pricing, plans, billing, saas
+ *
+ * @package BlueSage
+ * @author Ilyas Serter <hello@sagegrids.com>
+ * @company SAGE GRIDS LTD <https://www.sagegrids.com>
+ * @link https://www.iserter.com
  */
 ?>
 <!-- wp:blue-sage/pricing-table {
