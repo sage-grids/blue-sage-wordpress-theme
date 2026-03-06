@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/pricing-table {
+?><!-- wp:blue-sage/pricing-table {
 	"eyebrow":"Simple pricing",
 	"heading":"Plans that scale with you",
 	"subheading":"Start free. Upgrade as you grow. No hidden fees.",

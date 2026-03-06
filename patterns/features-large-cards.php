@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/feature-grid {
+?><!-- wp:blue-sage/feature-grid {
 	"layout":"large-cards",
 	"eyebrow":"Built for scale",
 	"heading":"Enterprise power, startup speed",

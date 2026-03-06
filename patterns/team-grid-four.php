@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/team-grid {
+?><!-- wp:blue-sage/team-grid {
 	"eyebrow":"Our team",
 	"heading":"The people behind the product",
 	"photoShape":"square",

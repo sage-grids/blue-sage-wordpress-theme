@@ -91,41 +91,74 @@ sed -i '' "s/define( 'BLUE_SAGE_VERSION', '[^']*' )/define( 'BLUE_SAGE_VERSION',
 # 3. Update CHANGELOG.md – promote [Unreleased] section
 info "Updating CHANGELOG.md"
 
-# Add new versioned entry below the [Unreleased] heading
-PREV_TAG="v${OLD_VERSION}"
-NEW_ENTRY="## [${NEW_VERSION}] - ${TODAY}"
+# Collect commits since the previous tag, skipping release/meta commits
+COMMIT_LOG_FILE="$(mktemp)"
+git -C "$ROOT_DIR" log "v${OLD_VERSION}..HEAD" --pretty=format:"%s" 2>/dev/null \
+    | grep -Ev "^chore: release" \
+    > "$COMMIT_LOG_FILE" || true
 
-# Replace the blank [Unreleased] block with [Unreleased] + new versioned header
-python3 - "$CHANGELOG" "$NEW_VERSION" "$TODAY" "$REPO_URL" "$OLD_VERSION" <<'PYEOF'
-import sys, re, pathlib
+python3 - "$CHANGELOG" "$NEW_VERSION" "$TODAY" "$REPO_URL" "$OLD_VERSION" "$COMMIT_LOG_FILE" <<'PYEOF'
+import sys, re, pathlib, os
 
 path     = pathlib.Path(sys.argv[1])
 new_ver  = sys.argv[2]
 today    = sys.argv[3]
 repo     = sys.argv[4]
 old_ver  = sys.argv[5]
+log_file = sys.argv[6]
 
 text = path.read_text()
+
+# Build changelog entries from commit messages
+commit_section = ""
+with open(log_file) as f:
+    msgs = [l.strip() for l in f if l.strip()]
+
+if msgs:
+    added, fixed, changed = [], [], []
+    cc = re.compile(r'^(feat|fix|refactor|chore|docs|style|test|ci|build)(\([^)]+\))?!?:\s*', re.IGNORECASE)
+    for msg in msgs:
+        m = cc.match(msg)
+        if m:
+            kind = m.group(1).lower()
+            body = msg[m.end():]
+            if kind == 'feat':
+                added.append(f'- {body}')
+            elif kind == 'fix':
+                fixed.append(f'- {body}')
+            elif kind == 'refactor':
+                changed.append(f'- {body}')
+            # chore/docs/style/test/ci/build → skip
+        else:
+            changed.append(f'- {msg}')
+
+    sections = []
+    if added:
+        sections.append('### Added\n' + '\n'.join(added))
+    if fixed:
+        sections.append('### Fixed\n' + '\n'.join(fixed))
+    if changed:
+        sections.append('### Changed\n' + '\n'.join(changed))
+    if sections:
+        commit_section = '\n'.join(sections) + '\n'
 
 # Insert versioned section after [Unreleased] line
 unreleased_pat = re.compile(r'(## \[Unreleased\]\n)', re.MULTILINE)
 if not unreleased_pat.search(text):
     sys.exit("ERROR: Could not find '## [Unreleased]' in CHANGELOG.md")
 
-replacement = f'\\1\n## [{new_ver}] - {today}\n'
-text = unreleased_pat.sub(replacement, text, count=1)
+new_block = f'\n## [{new_ver}] - {today}\n\n{commit_section}'
+text = unreleased_pat.sub(lambda m: m.group(1) + new_block, text, count=1)
 
 # Update / add comparison links at the bottom
 link_unreleased = f'[Unreleased]: {repo}/compare/v{new_ver}...HEAD'
 link_new        = f'[{new_ver}]: {repo}/compare/v{old_ver}...v{new_ver}'
 
-# Replace existing [Unreleased] link if present, else append
 if re.search(r'^\[Unreleased\]:', text, re.MULTILINE):
     text = re.sub(r'^\[Unreleased\]:.*$', link_unreleased, text, flags=re.MULTILINE)
 else:
     text = text.rstrip('\n') + f'\n{link_unreleased}\n'
 
-# Insert new version link after [Unreleased] link
 if not re.search(rf'^\[{re.escape(new_ver)}\]:', text, re.MULTILINE):
     text = re.sub(
         r'(^\[Unreleased\]:.*\n)',
@@ -137,6 +170,8 @@ if not re.search(rf'^\[{re.escape(new_ver)}\]:', text, re.MULTILINE):
 path.write_text(text)
 print(f"  CHANGELOG.md updated for {new_ver}")
 PYEOF
+
+rm -f "$COMMIT_LOG_FILE"
 
 # 4. Commit
 info "Staging changed files"

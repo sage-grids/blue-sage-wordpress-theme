@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/cta-section {
+?><!-- wp:blue-sage/cta-section {
 	"layout":"full-dark",
 	"eyebrow":"Get started today",
 	"heading":"Ready to build something great?",

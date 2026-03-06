@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/metrics-bar {
+?><!-- wp:blue-sage/metrics-bar {
 	"eyebrow":"By the numbers",
 	"darkBg":true,
 	"items":[

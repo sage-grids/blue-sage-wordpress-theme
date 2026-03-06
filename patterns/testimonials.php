@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/testimonial-carousel {
+?><!-- wp:blue-sage/testimonial-carousel {
 	"eyebrow":"What our customers say",
 	"heading":"Trusted by teams who care about craft",
 	"darkBg":false,

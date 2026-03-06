@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/cta-section {
+?><!-- wp:blue-sage/cta-section {
 	"layout":"inline-box",
 	"heading":"Start your free trial",
 	"subtext":"14 days free, no credit card required. Cancel any time — no questions asked.",

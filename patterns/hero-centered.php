@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/hero {
+?><!-- wp:blue-sage/hero {
 	"layout":"centered",
 	"eyebrow":"Introducing Blue Sage",
 	"heading":"Build products your\ncustomers love",

@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:group {"layout":{"type":"constrained"}} -->
+?><!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
 
 <!-- wp:blue-sage/blog-cards {

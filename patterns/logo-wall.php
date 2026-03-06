@@ -11,8 +11,7 @@
  * @company SAGE GRIDS LTD <https://www.sagegrids.com>
  * @link https://www.iserter.com
  */
-?>
-<!-- wp:blue-sage/logo-wall {
+?><!-- wp:blue-sage/logo-wall {
 	"eyebrow":"Trusted by 10,000+ teams worldwide",
 	"marquee":true,
 	"speed":40,
