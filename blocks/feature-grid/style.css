@@ -68,7 +68,7 @@
 }
 
 .bs-features__item:hover {
-	background-color: var(--bs-off-white);
+	background: linear-gradient(160deg, #EEF3FF 0%, var(--bs-off-white) 100%);
 }
 
 /* Remove right border on last in each row */
@@ -93,13 +93,21 @@
 .bs-features__item-icon {
 	width: 48px;
 	height: 48px;
-	background-color: rgba(30, 79, 216, 0.08);
-	border-radius: var(--bs-radius-md);
+	background: linear-gradient(135deg, rgba(30, 79, 216, 0.14) 0%, rgba(59, 130, 246, 0.06) 100%);
+	border-radius: 50%;
+	border: 1px solid rgba(30, 79, 216, 0.15);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: var(--bs-rich-blue);
 	flex-shrink: 0;
+	transition: background var(--bs-t-base), color var(--bs-t-base), border-color var(--bs-t-base);
+}
+
+.bs-features__item:hover .bs-features__item-icon {
+	background: var(--bs-rich-blue);
+	border-color: var(--bs-rich-blue);
+	color: var(--bs-white);
 }
 
 .bs-features__item-icon svg {
@@ -244,7 +252,7 @@
 }
 
 .bs-features__large-card--blue {
-	background-color: var(--bs-rich-blue);
+	background: linear-gradient(135deg, var(--bs-rich-blue) 0%, var(--bs-indigo) 100%);
 	border-color: transparent;
 }
 

@@ -8,6 +8,18 @@
 
 .bs-metrics--dark {
 	background-color: var(--bs-deep-navy);
+	background-image: repeating-linear-gradient(
+		-45deg,
+		transparent 0px,
+		transparent 1px,
+		rgba(255, 255, 255, 0.014) 1px,
+		rgba(255, 255, 255, 0.014) 2px,
+		transparent 2px,
+		transparent 40px
+	);
+	position: relative;
+	z-index: 1;
+	box-shadow: 0 8px 40px rgba(10, 22, 40, 0.22);
 }
 
 .bs-metrics--light {
@@ -46,7 +58,7 @@
 .bs-metrics__divider {
 	width: 1px;
 	align-self: stretch;
-	background-color: rgba(255, 255, 255, 0.10);
+	background-color: rgba(255, 255, 255, 0.15);
 	flex-shrink: 0;
 }
 
@@ -63,11 +75,18 @@
 	line-height: 1;
 	color: var(--bs-white);
 	display: block;
-	tab-size: 4;
 }
 
 .bs-metrics--light .bs-metrics__number {
 	color: var(--bs-rich-blue);
+}
+
+/* Gradient luminance on dark counters */
+.bs-metrics--dark .bs-metrics__number {
+	background: linear-gradient(180deg, #FFFFFF 0%, rgba(147, 197, 253, 0.85) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 }
 
 /* Label */

@@ -36,13 +36,13 @@
 .bs-btn:active { transform: translateY(0);    }
 
 .bs-btn--primary {
-	background-color: var(--bs-rich-blue);
+	background: linear-gradient(135deg, #2058E8 0%, #1545C8 100%);
 	color: var(--bs-white);
-	border-color: var(--bs-rich-blue);
+	border-color: transparent;
 }
 .bs-btn--primary:hover {
-	background-color: #1840b8;
-	border-color: #1840b8;
+	background: linear-gradient(135deg, #1840B8 0%, #1232A0 100%);
+	border-color: transparent;
 	color: var(--bs-white);
 	box-shadow: var(--bs-shadow-blue-sm);
 }
@@ -73,8 +73,34 @@
 
 .bs-cta--full-dark {
 	background-color: var(--bs-deep-navy);
+	background-image: repeating-linear-gradient(
+		-45deg,
+		transparent 0px,
+		transparent 1px,
+		rgba(255, 255, 255, 0.014) 1px,
+		rgba(255, 255, 255, 0.014) 2px,
+		transparent 2px,
+		transparent 40px
+	);
 	padding: var(--bs-section-y) var(--bs-container-padding);
 	text-align: center;
+}
+
+/* Sage-green corner atmosphere */
+.bs-cta--full-dark::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 55%;
+	height: 75%;
+	background: radial-gradient(
+		ellipse at 100% 100%,
+		rgba(16, 185, 129, 0.09) 0%,
+		transparent 65%
+	);
+	pointer-events: none;
+	z-index: 0;
 }
 
 /* Radial glow behind heading */
@@ -154,17 +180,19 @@
 	justify-content: space-between;
 	gap: 48px;
 	padding: 48px 56px;
-	border: 1px solid rgba(30, 79, 216, 0.12);
+	border: 1.5px solid transparent;
 	border-radius: var(--bs-radius-lg);
-	background-color: var(--bs-white);
+	background:
+		linear-gradient(var(--bs-white), var(--bs-white)) padding-box,
+		linear-gradient(135deg, rgba(30, 79, 216, 0.30), rgba(99, 102, 241, 0.18), rgba(30, 79, 216, 0.10)) border-box;
 	transition:
-		border-color var(--bs-t-base),
-		box-shadow var(--bs-t-base);
+		box-shadow var(--bs-t-base),
+		transform var(--bs-t-base);
 }
 
 .bs-cta--inline-box .bs-cta__box:hover {
-	border-color: rgba(30, 79, 216, 0.28);
-	box-shadow: var(--bs-shadow-blue-sm);
+	box-shadow: var(--bs-shadow-blue);
+	transform: translateY(-2px);
 }
 
 .bs-cta--inline-box .bs-cta__box-text {
